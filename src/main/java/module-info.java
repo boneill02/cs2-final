@@ -3,6 +3,6 @@ module com.example.cs2final {
     requires javafx.fxml;
 
 
-    opens com.example.cs2final to javafx.fxml;
-    exports com.example.cs2final;
+    opens edu.wit.comp1050.cs2final to javafx.fxml;
+    exports edu.wit.comp1050.cs2final;
 }
