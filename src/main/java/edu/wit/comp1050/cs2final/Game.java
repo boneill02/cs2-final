@@ -6,4 +6,29 @@ package edu.wit.comp1050.cs2final;
 public class Game {
     Board board;
     Player player1, player2;
+
+    /**
+     * Initialize the game.
+     * @param board checkers board
+     * @param player1 player 1
+     * @param player2 player 2
+     */
+    public Game(Board board, Player player1, Player player2) {
+        this.board = board;
+        this.player1 = player1;
+        this.player2 = player2;
+    }
+
+    /**
+     * Start the game
+     */
+    public void start() {
+        boolean running = true;
+
+        /* FIXME this will hang because we don't have a way to quit yet (should quit when JavaFX window is exited */
+        while (running) {
+            player1.doTurn();
+            player2.doTurn();
+        }
+    }
 }
