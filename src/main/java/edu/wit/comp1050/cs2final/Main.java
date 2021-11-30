@@ -44,7 +44,7 @@ public class Main extends Application {
         }
         
         ScrollPane scrollPane = new ScrollPane (boardPane) ; 
-        
+        //Setting the correct layout 
         stage.setScene(new Scene(scrollPane));
         stage.setHeight(850);
         stage.setWidth(825);
