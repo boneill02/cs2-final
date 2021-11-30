@@ -20,6 +20,7 @@ public class Main extends Application {
 
         /* initialize ui components */
         GridPane boardPane = new GridPane();
+        stage.show();
     }
 
     public static void main(String[] args) {
