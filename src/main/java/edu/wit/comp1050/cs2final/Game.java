@@ -25,7 +25,6 @@ public class Game {
     public void start() {
         boolean running = true;
 
-        /* FIXME this will hang because we don't have a way to quit yet (should quit when JavaFX window is exited */
         while (running) {
             player1.doTurn();
             player2.doTurn();

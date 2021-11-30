@@ -6,7 +6,7 @@ package edu.wit.comp1050.cs2final;
  * @author Ben O'Neill
  */
 public abstract class Player {
-    protected Direction direction; // true is up, false is down
+    protected Direction direction;
 
 
     public Player(Direction direction) {
