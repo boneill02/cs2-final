@@ -13,7 +13,9 @@ import java.io.IOException;
 /**
  * Main class of Checkers game for CS2 final project.
  *
- * @author Ben O'Neill
+ * @author Ben O'Neill, Yogi Patel
+ * 
+ * 
  */
 public class Main extends Application {
     @Override
