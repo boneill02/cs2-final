@@ -64,18 +64,34 @@ public class Board {
         if (p == null) {
             /* piece doesn't exist */
             return false;
-        }
-
-        if (p.getOwner() != player) {
+        } else if (dy == sy || dx == sx) {
+            /* moving straight up or straight down */
+            return false;
+        } else if (dy - sy != dx - sx) {
+            /* not moving diagonally */
+            return false;
+        } else if (p.getOwner() != player) {
             /* piece does not belong to the player */
             return false;
-        }
-
-        /* TODO fix this to work for both sides. specify direction in Player? */
-        if (!p.isKing() && dy < sy) {
+        } else if (!p.isKing() && p.getOwner().getDirection() == Direction.UP && dy < sy) {
+            /* wrong direction */
+            return false;
+        } else if (!p.isKing() && p.getOwner().getDirection() == Direction.DOWN && dy > sy) {
+            /* wrong direction */
             return false;
         }
 
+        /* TODO detect when piece is taken */
+
         return true;
+    }
+
+    /**
+     * Capture a piece (piece is just removed from the board for now).
+     * @param x x-coordinate of piece on the board
+     * @param y y-coordinate of piece on the board
+     */
+    public void take(int x, int y) {
+        board[x][y] = null;
     }
 }
