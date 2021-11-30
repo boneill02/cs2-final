@@ -2,7 +2,6 @@ package edu.wit.comp1050.cs2final;
 
 import javafx.application.Application;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,6 +19,7 @@ public class Main extends Application {
 
         /* initialize ui components */
         GridPane boardPane = new GridPane();
+        stage.show();
         // TODO rest of UI
     }
 
