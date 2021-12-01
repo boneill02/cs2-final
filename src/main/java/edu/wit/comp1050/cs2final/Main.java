@@ -25,7 +25,7 @@ public class Main extends Application {
         /* set window properties */
         stage.setTitle("Checkers");
 
-        /* initialize ui components */
+        /* initialize UI components */
        
         
         GridPane boardPane = new GridPane();
@@ -49,20 +49,6 @@ public class Main extends Application {
         stage.setScene(new Scene(scrollPane));
         stage.setHeight(850);
         stage.setWidth(825);
-        stage.show();
-
-
-        for ( int r = 0; r < 8;r ++) {
-            for ( int c = 0; c < 8; c ++ ) {
-                int number = 8 * r + c;
-                Button btn = new Button (String.valueOf((number)));
-                boardPane.add(btn, c, r);
-            }
-        }
-
-        ScrollPane scrPane = new ScrollPane(boardPane) ;
-
-        stage.setScene(new Scene(scrollPane));
         stage.show();
         // TODO rest of UI
 
