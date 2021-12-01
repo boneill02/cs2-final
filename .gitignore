@@ -1,5 +1,2 @@
-<<<<<<< HEAD
-/target/
-=======
 .idea/
->>>>>>> branch 'main' of https://github.com/darklands1/cs2-final.git
+src/main/java/.gitignore
