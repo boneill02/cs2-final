@@ -1,4 +1,4 @@
-module com.example.cs2final {
+module edu.wit.comp1050.cs2final {
     requires javafx.controls;
     requires javafx.fxml;
 	requires javafx.graphics;
