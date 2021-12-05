@@ -16,15 +16,15 @@ public class Board {
         board = new Piece[8][8];
 
         /* init player 1's pieces */
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 8; j += 2) {
+        for (int i = 5; i < 8; i++) {
+            for (int j = (i % 2 == 1) ? 0 : 1; j < 8; j += 2) {
                 board[i][j] = new Piece(p1);
             }
         }
 
         /* init player 2's pieces */
-        for (int i = 5; i < 8; i++) {
-            for (int j = 1; j < 8; j += 2) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = (i % 2 == 1) ? 0 : 1; j < 8; j += 2) {
                 board[i][j] = new Piece(p2);
             }
         }

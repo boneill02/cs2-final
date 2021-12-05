@@ -16,7 +16,7 @@ public class Game {
     public Game() {
         p1 = new HumanPlayer(Direction.UP);
         p2 = new HumanPlayer(Direction.DOWN);
-        Board b = new Board(p1, p2);
+        board = new Board(p1, p2);
     }
 
     /**
@@ -35,10 +35,9 @@ public class Game {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 Piece p = b.getPiece(i, j);
-                if (p == null)
-                    continue;
-
-                if (p.getOwner() == p1 && p.isKing()) {
+                if (p == null) {
+                    boardButtons[i][j].setText("X");
+                } else if (p.getOwner() == p1 && p.isKing()) {
                     boardButtons[i][j].setText("WK");
                 } else if (p.getOwner() == p1 && !p.isKing()) {
                     boardButtons[i][j].setText("W");
@@ -53,12 +52,11 @@ public class Game {
 
     public void initButtons(GridPane pane) {
         boardButtons = new Button[8][8];
-        for ( int r = 0; r < 8; r++) {
-            for ( int c = 0; c < 8; c++) {
-                int number = 8 * c + r;
-                boardButtons[r][c] = new Button (String.valueOf((number)));
-                boardButtons[r][c].setShape( new Rectangle(90, 90));
-                pane.add(boardButtons[r][c], r, c);
+        for ( int i = 0; i < 8; i++) {
+            for ( int j = 0; j < 8; j++) {
+                boardButtons[i][j] = new Button();
+                boardButtons[i][j].setShape(new Rectangle(90, 90));
+                pane.add(boardButtons[i][j], j, i);
             }
         }
     }
@@ -68,6 +66,8 @@ public class Game {
      */
     public void start() {
         boolean running = true;
+
+        displayPieces(board);
 
         /* TODO implement Player.doTurn() */
         /*
