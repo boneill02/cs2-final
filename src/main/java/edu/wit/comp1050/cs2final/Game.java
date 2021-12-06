@@ -9,9 +9,9 @@ import javafx.scene.shape.Rectangle;
  * Checkers game mechanics.
  */
 public class Game {
-    Board board;
-    Player p1, p2;
-    Button[][] boardButtons;
+    private Board board;
+    private Player p1, p2;
+    private Button[][] boardButtons;
 
     public Game() {
         p1 = new HumanPlayer(Direction.UP);
