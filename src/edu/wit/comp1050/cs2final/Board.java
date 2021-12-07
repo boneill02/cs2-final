@@ -63,27 +63,27 @@ public class Board {
         Piece p = board[sx][sy];
         if (p == null) {
             /* piece doesn't exist */
-            System.out.printf("piece doesn't exist%n");
+            System.out.printf("illegal move: piece doesn't exist%n");
             return false;
-        } else if (dy == sy || dx == sx) {
+        } else if (dy == sy || dx == sx || Math.abs(dy - sy) != Math.abs(dx - sx)) {
             /* moving straight up or straight down */
-            System.out.printf("moving straight up or straight down%n");
-            return false;
-        } else if (Math.abs(dy - sy) != Math.abs(dx - sx)) {
-            /* not moving diagonally */
-            System.out.printf("not moving diagonally%n");
+            System.out.printf("illegal move: not moving diagonally%n");
             return false;
         } else if (p.getOwner() != player) {
             /* piece does not belong to the player */
-            System.out.printf("piece doesn't belong to player%n");
+            System.out.printf("illegal move: piece doesn't belong to player%n");
+            return false;
+        } else if (spaceOccupied(dx, dy)) {
+            /* space is occupied */
+            System.out.printf("illegal move: destination cell is occupied%n");
             return false;
         } else if (!p.isKing() && p.getOwner().getDirection() == Direction.UP && dx > sx) {
             /* wrong direction */
-            System.out.printf("wrong direction%n");
+            System.out.printf("illegal move: wrong direction%n");
             return false;
         } else if (!p.isKing() && p.getOwner().getDirection() == Direction.DOWN && dx < sx) {
             /* wrong direction */
-            System.out.printf("wrong direction%n");
+            System.out.printf("illegal move: wrong direction%n");
             return false;
         }
 
@@ -91,7 +91,7 @@ public class Board {
 
         board[dx][dy] = p;
         board[sx][sy] = null;
-        System.out.printf("success%n");
+        System.out.printf("legal move%n");
         return true;
     }
 
