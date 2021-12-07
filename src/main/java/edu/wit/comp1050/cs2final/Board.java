@@ -63,26 +63,35 @@ public class Board {
         Piece p = board[sx][sy];
         if (p == null) {
             /* piece doesn't exist */
+            System.out.printf("piece doesn't exist%n");
             return false;
         } else if (dy == sy || dx == sx) {
             /* moving straight up or straight down */
+            System.out.printf("moving straight up or straight down%n");
             return false;
-        } else if (dy - sy != dx - sx) {
+        } else if (Math.abs(dy - sy) != Math.abs(dx - sx)) {
             /* not moving diagonally */
+            System.out.printf("not moving diagonally%n");
             return false;
         } else if (p.getOwner() != player) {
             /* piece does not belong to the player */
+            System.out.printf("piece doesn't belong to player%n");
             return false;
-        } else if (!p.isKing() && p.getOwner().getDirection() == Direction.UP && dy < sy) {
+        } else if (!p.isKing() && p.getOwner().getDirection() == Direction.UP && dx > sx) {
             /* wrong direction */
+            System.out.printf("wrong direction%n");
             return false;
-        } else if (!p.isKing() && p.getOwner().getDirection() == Direction.DOWN && dy > sy) {
+        } else if (!p.isKing() && p.getOwner().getDirection() == Direction.DOWN && dx < sx) {
             /* wrong direction */
+            System.out.printf("wrong direction%n");
             return false;
         }
 
         /* TODO detect when piece is taken */
 
+        board[dx][dy] = p;
+        board[sx][sy] = null;
+        System.out.printf("success%n");
         return true;
     }
 

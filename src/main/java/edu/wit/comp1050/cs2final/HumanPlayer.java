@@ -13,5 +13,7 @@ public class HumanPlayer extends Player {
     @Override
     public void doTurn() {
         // TODO implement
+        boolean waiting = true;
+
     }
 }

@@ -8,7 +8,6 @@ package edu.wit.comp1050.cs2final;
 public abstract class Player {
     protected Direction direction;
 
-
     public Player(Direction direction) {
         this.direction = direction;
     }
