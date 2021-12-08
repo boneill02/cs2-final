@@ -93,8 +93,7 @@ public class Board {
             return false;
         }
        
-        else if (!spaceOccupied(dx, dy) && Math.abs(dx-sx) == 1) {
-        	
+        else if (!spaceOccupied(dx, dy) && Math.abs(dx-sx) == 1) {	
         board[dx][dy] = p;
         board[sx][sy] = null;
         System.out.printf("legal move%n");
@@ -104,35 +103,38 @@ public class Board {
         
         
         // Remove piece taken
-        int tempX;
-        int tempY;
         
-        if (dx > sx) {
-        	
-        	tempX = sx +1 ; 
+        else if (spaceOccupied(dx,dy) && Math.abs(dx-sx) == 2) {
+        	 int tempX;
+             int tempY;
+             
+             if (dx > sx) {
+             	
+             	tempX = sx +1 ; 
+             }
+             else {
+             	tempX = sx - 1 ;
+             }
+             
+             if ( dy > sy ) {
+             	tempY = sy + 1 ; 
+             	
+             }
+             
+             else {
+             	tempY = sy - 1 ;
+             }
+             
+             
+             
+             
+             board[dx][dy] = p ;
+             take(sx, sy );
+             take(tempX, tempY);
+             System.out.printf("legal take%n");
+             return true; 
         }
-        else {
-        	tempX = sx - 1 ;
-        }
-        
-        if ( dy > sy ) {
-        	tempY = sy + 1 ; 
-        	
-        }
-        
-        else {
-        	tempY = sy - 1 ;
-        }
-        
-        
-        
-        
-        board[dx][dy] = p ;
-        take(sx, sy );
-        take(tempX, tempY);
-        System.out.printf("legal take%n");
-        return true; 
-
+        return false;
     }
 
     /**

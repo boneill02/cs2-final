@@ -102,6 +102,9 @@ public class Game {
                 else if (p.getOwner() == p2 && !p.isKing()) {
                     boardButtons[i][j].setText("B");
                     boardButtons[i][j].setShape(new Circle(3));
+                    
+                    
+                    
                     boardButtons[i][j].setPrefSize(40,40);
                     boardButtons[i][j].setTextFill(Color.RED);
                     countBlack++;
