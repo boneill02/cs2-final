@@ -103,7 +103,7 @@ public class Board {
         }
         
         
-        
+        // Remove piece taken
         int tempX;
         int tempY;
         

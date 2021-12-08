@@ -41,12 +41,30 @@ public class Game {
     }
 
     public void displayPieces(Board b) {
-        
+       
+    	int countWhite = 0 ;
+    	int countBlack = 0 ; 
     	
     	
     	for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                Piece p = b.getPiece(i, j);
+            	
+            	Piece p = b.getPiece(i, j);
+            	
+            	
+            	// Make King when it reaches to the other side 
+            	if ( i == 0 && p != null && p.getOwner() == p1  ) { 
+            		p.king();
+            	}
+            	
+            	if ( i == 7 && p != null && p.getOwner() == p2  ) { 
+            		p.king();
+            	}
+            	
+            	
+            	
+            	
+            	
                 if (p == null) {
                     boardButtons[i][j].setText("X");
                     boardButtons[i][j].setPrefSize(40,40);
@@ -65,6 +83,7 @@ public class Game {
                 
                 else if (p.getOwner() == p1 && p.isKing()) {
                     boardButtons[i][j].setText("WK");
+                    countWhite++;
                 } 
                 
                 else if (p.getOwner() == p1 && !p.isKing()) {
@@ -72,10 +91,12 @@ public class Game {
                     boardButtons[i][j].setShape(new Circle(3));
                     boardButtons[i][j].setPrefSize(40,40);
                     boardButtons[i][j].setTextFill(Color.BLUE);
+                    countWhite++ ; 
                 } 
                 
                 else if (p.getOwner() == p2 && p.isKing()) {
                     boardButtons[i][j].setText("BK");
+                    countBlack++;
                 } 
                 
                 else if (p.getOwner() == p2 && !p.isKing()) {
@@ -83,9 +104,21 @@ public class Game {
                     boardButtons[i][j].setShape(new Circle(3));
                     boardButtons[i][j].setPrefSize(40,40);
                     boardButtons[i][j].setTextFill(Color.RED);
+                    countBlack++;
                 }
             }
         }
+    	
+    	System.out.printf("White Pieces left ; %d%n ", countWhite );
+    	System.out.printf("Black Pieces left ; %d%n ", countBlack );
+    	if ( countWhite == 0 ) {
+    		System.out.print("Black Wins !!! ");
+    		System.exit(0);
+    	}
+    	if ( countBlack == 0 ) {
+    		System.out.print("White Wins !!! ");
+    		System.exit(0);
+    	}
     }
 
     /**
