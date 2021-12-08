@@ -1,5 +1,7 @@
 package edu.wit.comp1050.cs2final;
 
+import com.sun.prism.paint.Color;
+
 /**
  * This class represents a checker's board. When initialized, it puts pieces in
  * the default starting positions.
@@ -19,6 +21,7 @@ public class Board {
         for (int i = 5; i < 8; i++) {
             for (int j = (i % 2 == 1) ? 0 : 1; j < 8; j += 2) {
                 board[i][j] = new Piece(p1);
+               
             }
         }
 
@@ -26,6 +29,9 @@ public class Board {
         for (int i = 0; i < 3; i++) {
             for (int j = (i % 2 == 1) ? 0 : 1; j < 8; j += 2) {
                 board[i][j] = new Piece(p2);
+               
+                
+                
             }
         }
     }
@@ -86,6 +92,11 @@ public class Board {
             System.out.printf("illegal move: wrong direction%n");
             return false;
         }
+       
+        
+        //else if  { 
+        	
+        //}
 
         /* TODO detect when piece is taken */
 

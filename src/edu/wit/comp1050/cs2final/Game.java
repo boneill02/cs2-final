@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
@@ -43,16 +44,31 @@ public class Game {
                 Piece p = b.getPiece(i, j);
                 if (p == null) {
                     boardButtons[i][j].setText("X");
-                } else if (p.getOwner() == p1 && p.isKing()) {
+                    boardButtons[i][j].setPrefSize(40,40);
+                    boardButtons[i][j].setTextFill(Color.BLACK);
+                    
+                }
+                
+                else if (p.getOwner() == p1 && p.isKing()) {
                     boardButtons[i][j].setText("WK");
-                } else if (p.getOwner() == p1 && !p.isKing()) {
+                } 
+                
+                else if (p.getOwner() == p1 && !p.isKing()) {
                     boardButtons[i][j].setText("W");
                     boardButtons[i][j].setShape(new Circle(3));
-                } else if (p.getOwner() == p2 && p.isKing()) {
+                    boardButtons[i][j].setPrefSize(40,40);
+                    boardButtons[i][j].setTextFill(Color.BLUE);
+                } 
+                
+                else if (p.getOwner() == p2 && p.isKing()) {
                     boardButtons[i][j].setText("BK");
-                } else if (p.getOwner() == p2 && !p.isKing()) {
+                } 
+                
+                else if (p.getOwner() == p2 && !p.isKing()) {
                     boardButtons[i][j].setText("B");
                     boardButtons[i][j].setShape(new Circle(3));
+                    boardButtons[i][j].setPrefSize(40,40);
+                    boardButtons[i][j].setTextFill(Color.RED);
                 }
             }
         }
@@ -96,6 +112,8 @@ public class Game {
             for (int j = 0; j < 8; j++) {
                 Button b = new Button();
                 b.setShape(new Rectangle(90, 90));
+                b.setTextFill(Color.BLACK);
+                b.setPrefSize(40,40);
                 b.setOnAction(event -> {
                     if (selected1 == null) {
                         selected1 = b;
