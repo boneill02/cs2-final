@@ -104,7 +104,7 @@ public class Board {
         
         // Remove piece taken
         
-        else if (spaceOccupied(dx,dy) && Math.abs(dx-sx) == 2) {
+        else if (!spaceOccupied(dx,dy) && Math.abs(dx-sx) == 2) {
         	 int tempX;
              int tempY;
              
@@ -124,10 +124,6 @@ public class Board {
              else {
              	tempY = sy - 1 ;
              }
-             
-             
-             
-             
              board[dx][dy] = p ;
              take(sx, sy );
              take(tempX, tempY);
