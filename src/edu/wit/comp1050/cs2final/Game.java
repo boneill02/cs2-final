@@ -11,6 +11,8 @@ import javafx.scene.shape.Rectangle;
 
 /**
  * Checkers game mechanics.
+ * 
+ * @author Ben Oneil, Yogi Patel
  */
 public class Game {
     private Board board;
@@ -39,7 +41,10 @@ public class Game {
     }
 
     public void displayPieces(Board b) {
-        for (int i = 0; i < 8; i++) {
+        
+    	
+    	
+    	for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 Piece p = b.getPiece(i, j);
                 if (p == null) {

@@ -9,7 +9,7 @@ import com.sun.prism.paint.Color;
  * Player 1 will be on black squares (odd x values) and player 2 will be on red
  * white squares (even x values).
  *
- * @author Ben O'Neill
+ * @author Ben O'Neill, Yogi Patel
  */
 public class Board {
     private Piece[][] board;
@@ -93,20 +93,46 @@ public class Board {
             return false;
         }
        
-        else if ( spaceOccupied(dx - 1 , dy - 1 )  &&  board[dx-1][dy -1 ].getOwner() != player )  {
-        	board[dx][dy] = p ;
-        	take(sx, sy );
-        	take(dx-1, dy-1);
-        	System.out.printf("legal take%n");
-        	return true; 
-        }
-
-        /* TODO detect when piece is taken */
-
+        else if (!spaceOccupied(dx, dy) && Math.abs(dx-sx) == 1) {
+        	
         board[dx][dy] = p;
         board[sx][sy] = null;
         System.out.printf("legal move%n");
         return true;
+        
+        }
+        
+        
+        
+        int tempX;
+        int tempY;
+        
+        if (dx > sx) {
+        	
+        	tempX = sx +1 ; 
+        }
+        else {
+        	tempX = sx - 1 ;
+        }
+        
+        if ( dy > sy ) {
+        	tempY = sy + 1 ; 
+        	
+        }
+        
+        else {
+        	tempY = sy - 1 ;
+        }
+        
+        
+        
+        
+        board[dx][dy] = p ;
+        take(sx, sy );
+        take(tempX, tempY);
+        System.out.printf("legal take%n");
+        return true; 
+
     }
 
     /**
