@@ -93,10 +93,13 @@ public class Board {
             return false;
         }
        
-        
-        //else if  { 
-        	
-        //}
+        else if ( spaceOccupied(dx - 1 , dy - 1 )  &&  board[dx-1][dy -1 ].getOwner() != player )  {
+        	board[dx][dy] = p ;
+        	take(sx, sy );
+        	take(dx-1, dy-1);
+        	System.out.printf("legal take%n");
+        	return true; 
+        }
 
         /* TODO detect when piece is taken */
 

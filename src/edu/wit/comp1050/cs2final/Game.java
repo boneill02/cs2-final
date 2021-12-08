@@ -47,6 +47,15 @@ public class Game {
                     boardButtons[i][j].setPrefSize(40,40);
                     boardButtons[i][j].setTextFill(Color.BLACK);
                     
+                    // set piece/button visibility to false for unwanted pieces 
+                    if (i%2 != 1 && j%2 != 1 ) { 
+                    	boardButtons[i][j].setVisible(false);
+                    }
+                    
+                    if (i%2 == 1 && j%2 != 0) { 
+                    	boardButtons[i][j].setVisible(false);
+                    }
+                    
                 }
                 
                 else if (p.getOwner() == p1 && p.isKing()) {
