@@ -1,18 +1,15 @@
 package edu.wit.comp1050.cs2final;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 
 /**
  * Checkers game mechanics.
  * 
- * @author Ben Oneil, Yogi Patel
+ * @author Ben O'Neill, Yogi Patel
+ * 
  */
 public class Game {
     private Board board;
@@ -51,7 +48,6 @@ public class Game {
             	
             	Piece p = b.getPiece(i, j);
             	
-            	
             	// Make King when it reaches to the other side 
             	if ( i == 0 && p != null && p.getOwner() == p1  ) { 
             		p.king();
@@ -60,9 +56,6 @@ public class Game {
             	if ( i == 7 && p != null && p.getOwner() == p2  ) { 
             		p.king();
             	}
-            	
-            	
-            	
             	
             	
                 if (p == null) {
@@ -189,7 +182,6 @@ public class Game {
                         selected2 = null;
                         displayPieces(board);
                     }
-
                 });
                 boardButtons[i][j] = b;
                 pane.add(boardButtons[i][j], j, i);
@@ -202,9 +194,7 @@ public class Game {
      */
     public void start() {
         currentPlayer = p1;
-
         displayPieces(board);
-
     }
 
 }

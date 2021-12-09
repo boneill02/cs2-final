@@ -1,7 +1,5 @@
 package edu.wit.comp1050.cs2final;
 
-import com.sun.prism.paint.Color;
-
 /**
  * This class represents a Checkers piece.
  *

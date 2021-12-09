@@ -10,10 +10,5 @@ public class HumanPlayer extends Player {
         super(direction);
     }
 
-    @Override
-    public void doTurn() {
-        // TODO implement
-        boolean waiting = true;
-
-    }
+    public void doTurn() {}
 }

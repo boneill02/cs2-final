@@ -36,14 +36,11 @@ public class Main extends Application {
         stage.setTitle("Checkers");
 
         /* initialize UI components */
-       
-        
         GridPane boardPane = new GridPane();
 
         boardPane.setPadding(new Insets(10));
         boardPane.setHgap(50);
         boardPane.setVgap(51.5);
-
 
         ScrollPane scrollPane = new ScrollPane (boardPane) ;
         
@@ -55,23 +52,14 @@ public class Main extends Application {
         stage.setWidth(705);
         stage.show();
         
-        // TODO rest of UI
-        
-        
-        // Setting the Backgroud Image 
-        
+
+        // Setting the Background Image 
         BackgroundImage checkers = new BackgroundImage(new Image("http://www.clipartbest.com/cliparts/dc6/o6G/dc6o6GnKi.jpeg",700,700,false,true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                   BackgroundSize.DEFAULT);
         
-        
         //setting the node 
-        
         boardPane.setBackground(new Background(checkers));
-        
-        
-        
-
         Game g = new Game();
         g.initButtons(boardPane);
         g.start();

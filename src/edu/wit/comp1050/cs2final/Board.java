@@ -1,7 +1,5 @@
 package edu.wit.comp1050.cs2final;
 
-import com.sun.prism.paint.Color;
-
 /**
  * This class represents a checker's board. When initialized, it puts pieces in
  * the default starting positions.
@@ -29,9 +27,6 @@ public class Board {
         for (int i = 0; i < 3; i++) {
             for (int j = (i % 2 == 1) ? 0 : 1; j < 8; j += 2) {
                 board[i][j] = new Piece(p2);
-               
-                
-                
             }
         }
     }
@@ -91,39 +86,28 @@ public class Board {
             /* wrong direction */
             System.out.printf("illegal move: wrong direction%n");
             return false;
-        }
-       
-        else if (!spaceOccupied(dx, dy) && Math.abs(dx-sx) == 1) {	
-        board[dx][dy] = p;
-        board[sx][sy] = null;
-        System.out.printf("legal move%n");
-        return true;
-        
-        }
-        
-        
-        // Remove piece taken
-        
-        else if (!spaceOccupied(dx,dy) && Math.abs(dx-sx) == 2) {
-        	 int tempX;
-             int tempY;
+        } else if (!spaceOccupied(dx, dy) && Math.abs(dx-sx) == 1) {	
+        	board[dx][dy] = p;
+        	board[sx][sy] = null;
+        	System.out.printf("legal move%n");
+        	return true;
+        } else if (!spaceOccupied(dx,dy) && Math.abs(dx-sx) == 2) {
+        	/* Remove piece taken */
+        	int tempX;
+            int tempY;
              
              if (dx > sx) {
-             	
              	tempX = sx +1 ; 
-             }
-             else {
+             } else {
              	tempX = sx - 1 ;
              }
-             
+
              if ( dy > sy ) {
              	tempY = sy + 1 ; 
-             	
-             }
-             
-             else {
+             } else {
              	tempY = sy - 1 ;
              }
+
              board[dx][dy] = p ;
              take(sx, sy );
              take(tempX, tempY);
