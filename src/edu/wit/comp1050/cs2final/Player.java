@@ -6,18 +6,28 @@ package edu.wit.comp1050.cs2final;
  * @author Ben O'Neill
  */
 public abstract class Player {
-    protected Direction direction;
+	protected Direction direction;
 
-    public Player(Direction direction) {
-        this.direction = direction;
-    }
+	/**
+	 * Default constructor, choose Direction
+	 * 
+	 * @param direction
+	 */
+	public Player(Direction direction) {
+		this.direction = direction;
+	}
 
-    public Direction getDirection() {
-        return direction;
-    }
+	/**
+	 * Get the current direction of the player
+	 * 
+	 * @return direction
+	 */
+	public Direction getDirection() {
+		return direction;
+	}
 
-    /**
-     * Do player turn
-     */
-    public abstract void doTurn();
+	/**
+	 * Do player turn
+	 */
+	public abstract void doTurn();
 }

@@ -6,9 +6,13 @@ package edu.wit.comp1050.cs2final;
  * @author Ben O'Neill
  */
 public class HumanPlayer extends Player {
-    public HumanPlayer(Direction direction) {
-        super(direction);
-    }
+	public HumanPlayer(Direction direction) {
+		super(direction);
+	}
 
-    public void doTurn() {}
+	/**
+	 * Do player turn (unimplemented due to Button event handlers)
+	 */
+	public void doTurn() {
+	}
 }
