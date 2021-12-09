@@ -83,6 +83,9 @@ public class Game {
                 
                 else if (p.getOwner() == p1 && p.isKing()) {
                     boardButtons[i][j].setText("WK");
+                    boardButtons[i][j].setShape(new Circle(3));
+                    boardButtons[i][j].setPrefSize(40,40);
+                    boardButtons[i][j].setTextFill(Color.BLUE);
                     countWhite++;
                 } 
                 
@@ -96,15 +99,15 @@ public class Game {
                 
                 else if (p.getOwner() == p2 && p.isKing()) {
                     boardButtons[i][j].setText("BK");
+                    boardButtons[i][j].setShape(new Circle(3));
+                    boardButtons[i][j].setPrefSize(40,40);
+                    boardButtons[i][j].setTextFill(Color.RED);
                     countBlack++;
                 } 
                 
                 else if (p.getOwner() == p2 && !p.isKing()) {
                     boardButtons[i][j].setText("B");
                     boardButtons[i][j].setShape(new Circle(3));
-                    
-                    
-                    
                     boardButtons[i][j].setPrefSize(40,40);
                     boardButtons[i][j].setTextFill(Color.RED);
                     countBlack++;
@@ -112,8 +115,8 @@ public class Game {
             }
         }
     	
-    	System.out.printf("White Pieces left ; %d%n ", countWhite );
-    	System.out.printf("Black Pieces left ; %d%n ", countBlack );
+    	System.out.printf("White Pieces left; %d%n", countWhite );
+    	System.out.printf("Black Pieces left; %d%n%n", countBlack );
     	if ( countWhite == 0 ) {
     		System.out.print("Black Wins !!! ");
     		System.exit(0);
@@ -161,7 +164,7 @@ public class Game {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 Button b = new Button();
-                b.setShape(new Rectangle(90, 90));
+                b.setShape(new Circle(3));
                 b.setTextFill(Color.BLACK);
                 b.setPrefSize(40,40);
                 b.setOnAction(event -> {
